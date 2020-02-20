@@ -38,17 +38,15 @@ module.exports = {
   ],
   pwa: {
     manifest: {
-      name: 'nuxt_pwa',
-      short_name: 'NuxtPwa',
-      start_url: '/',
+      name: 'ShortURL',
+      short_name: 'ucut',
+      start_url: '/*',
       display: 'standalone',
       background_color: '#000'
     },
 
     workbox: {
       offline: true,
-      dev: true,
-      importScripts: ['pwa.js'],
       runtimeCaching: [
         {
           urlPattern: "/*",
