@@ -3,7 +3,6 @@ module.exports = {
   /*
   ** Headers of the page
   */
-  srcDir: 'src/',
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -26,10 +25,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    {src: '~plugins/pwa.js', ssr: false},
-    {src: '~plugins/axios.js'}
-  ],
+  plugins: [{src: '~plugins/pwa.js', ssr: false}],
   /*
   ** Nuxt.js dev-modules
   */
@@ -38,20 +34,21 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/pwa",
-    "@nuxtjs/axios",
+    "@nuxtjs/pwa"
   ],
   pwa: {
     manifest: {
-      name: 'ShortURL',
-      short_name: 'ucut',
-      start_url: '/*',
+      name: 'nuxt_pwa',
+      short_name: 'NuxtPwa',
+      start_url: '/',
       display: 'standalone',
       background_color: '#000'
     },
 
     workbox: {
       offline: true,
+      dev: true,
+      importScripts: ['pwa.js'],
       runtimeCaching: [
         {
           urlPattern: "/*",
