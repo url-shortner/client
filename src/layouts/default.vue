@@ -10,4 +10,10 @@
   html, body {
     margin: 0;
   }
+
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
 </style>
