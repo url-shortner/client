@@ -3,6 +3,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  srcDir: 'src/',
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -25,7 +26,10 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{src: '~plugins/pwa.js', ssr: false}],
+  plugins: [
+    {src: '~plugins/pwa.js', ssr: false},
+    {src: '~plugins/axios.js'}
+  ],
   /*
   ** Nuxt.js dev-modules
   */
@@ -34,7 +38,8 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
+    "@nuxtjs/axios",
   ],
   pwa: {
     manifest: {
