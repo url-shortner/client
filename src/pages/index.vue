@@ -4,7 +4,7 @@
       <div class="container">
         <img class="logo" src="../assets/Ucut.in.svg" alt="로고이미지"/>
         <p class="logo-paragraph">shorten url, share link, take pics</p>
-        <label for="url-shorten" class="label-hidden">Shorten Search</label>
+        <label for="url-shorten" class="label-hidden">URL Shorten</label>
         <input id="url-shorten" type="text" class="search-input color-strength" placeholder="Shorten your link"/>
         <Button class="search-btn">
           <span>SHORTEN IT!</span>
@@ -23,9 +23,10 @@
       <div class="search-container">
         <img src="../assets/search-icon.png" alt="검색 아이콘"
              class=""/>
-        <label for="shorten-search" class="label-hidden"></label>
+        <label for="shorten-search" class="label-hidden">Shorten Search</label>
         <input id="shorten-search" type="text" class="color-strength" placeholder="키 주소 혹은 랜딩페이지 주소로 검색해보세요"/>
       </div>
+      <!--      nth-child 활용하는방안-->
       <div class="url-title pc-url-title">
         <div class="color-strength" style="width:124px;">키 주소</div>
         <div class="url-title-margin color-strength" style="width:564px;">랜딩페이지 주소</div>
