@@ -18,16 +18,11 @@
 <style scoped>
   button {
     line-height: 1;
-    vertical-align: middle;
     text-align: center;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-    height: 48px;
   }
 
-  button span {
-    font-size: 18px;
-  }
 </style>
