@@ -2,9 +2,10 @@
   <div class="home">
     <div class="wrapper">
       <div class="container">
-        <img class="logo" src="../assets/Ucut.in.svg"/>
+        <img class="logo" src="../assets/Ucut.in.svg" alt="로고이미지"/>
         <p class="logo-paragraph">shorten url, share link, take pics</p>
-        <input class="search-input" placeholder="Shorten your link"/>
+        <label for="url-shorten" class="label-hidden">Shorten Search</label>
+        <input id="url-shorten" type="text" class="search-input color-strength" placeholder="Shorten your link"/>
         <Button class="search-btn">
           <span>SHORTEN IT!</span>
         </Button>
@@ -13,23 +14,24 @@
         </p>
         <!--        <div class="camera">-->
         <!--          <div>-->
-        <!--            <img src="../assets/Union.png">-->
+        <!--            <img src="../assets/Union.png" alt="카메라 이미지">-->
         <!--          </div>-->
         <!--        </div>-->
       </div>
     </div>
     <div class="url-wrapper">
       <div class="search-container">
-        <img src="../assets/search-icon.png"
+        <img src="../assets/search-icon.png" alt="검색 아이콘"
              class=""/>
-        <input placeholder="키 주소 혹은 랜딩페이지 주소로 검색해보세요"/>
+        <label for="shorten-search" class="label-hidden"></label>
+        <input id="shorten-search" type="text" class="color-strength" placeholder="키 주소 혹은 랜딩페이지 주소로 검색해보세요"/>
       </div>
       <div class="url-title pc-url-title">
-        <div style="width:124px;">키 주소</div>
-        <div class="url-title-margin" style="width:564px;">랜딩페이지 주소</div>
-        <div class="url-title-margin" style="width:60px;">조회수</div>
-        <div class="url-title-margin" style="width:96px; text-align: right">생성일</div>
-        <div class="url-title-margin" style="width:138px; text-align: right">유효기간</div>
+        <div class="color-strength" style="width:124px;">키 주소</div>
+        <div class="url-title-margin color-strength" style="width:564px;">랜딩페이지 주소</div>
+        <div class="url-title-margin color-strength" style="width:60px;">조회수</div>
+        <div class="url-title-margin color-strength" style="width:96px; text-align: right">생성일</div>
+        <div class="url-title-margin color-strength" style="width:138px; text-align: right">유효기간</div>
       </div>
       <div class="url-title mobile-url-title">
         <div style="width:90px;">키 주소</div>
@@ -66,12 +68,25 @@
     box-sizing: border-box;
   }
 
+  .label-hidden {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: 0;
+    overflow: hidden
+  }
+
   .pc-url-title {
     display: flex;
   }
 
   .mobile-url-title {
     display: none;
+  }
+
+  .color-strength {
+    color: #454c53;
   }
 
   .inline-block {
@@ -151,12 +166,13 @@
 
   .description {
     font-size: 12px;
-    color: #BBC2CC;
     margin-top: 24px;
+    color: #b8c2cc;
   }
 
   .description span {
     text-decoration: underline;
+    color: #98a5b3;
   }
 
   .camera {
@@ -185,6 +201,7 @@
     border-radius: 16px;
     padding: 24px;
     width: 1216px;
+    margin: 0;
     margin-left: calc(50% - 608px);
     margin-bottom: 120px;
   }
