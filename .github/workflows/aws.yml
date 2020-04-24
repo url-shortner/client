@@ -57,7 +57,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: 060127333571.dkr.ecr.ap-northeast-2.amazonaws.com/url-shortner-ssr
+        ECR_REPOSITORY: url-shortner-ssr
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
