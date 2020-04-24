@@ -15,6 +15,9 @@ module.exports = {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
+  router:{
+    middleware:['api']
+  },
   /*
   ** Customize the progress-bar color
   */
