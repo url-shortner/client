@@ -61,8 +61,8 @@
       Button,
     },
     name: 'Home',
-    async fetch({store, route, api}) {
-      return await api.Route.create("https://www.naver.com");
+    async asyncData({store, route, api}) {
+      return await api.Route.list();
     }
   }
 

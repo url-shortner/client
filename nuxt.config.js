@@ -1,3 +1,5 @@
+const SECRETS = require('./secret');
+
 module.exports = {
   mode: 'universal',
   /*
@@ -15,8 +17,8 @@ module.exports = {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
-  router:{
-    middleware:['api']
+  router: {
+    middleware: ['api']
   },
   /*
   ** Customize the progress-bar color
@@ -64,7 +66,8 @@ module.exports = {
       ]
     },
   },
-
+  API_KEY: SECRETS.API_KEY,
+  API_URL: SECRETS.API_URL[process.env.NODE_ENV],
   /*
   ** Build configuration
   */
@@ -75,4 +78,4 @@ module.exports = {
     extend(config, ctx) {
     }
   }
-}
+};
