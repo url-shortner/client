@@ -62,7 +62,7 @@
     },
     name: 'Home',
     async asyncData({store, route, api}) {
-      return await api.Route.list();
+      // return await api.Route.list();
     }
   }
 

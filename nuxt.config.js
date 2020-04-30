@@ -20,6 +20,9 @@ module.exports = {
   router: {
     middleware: ['api']
   },
+  serverMiddleware: [
+    '~/server/index.js',
+  ],
   /*
   ** Customize the progress-bar color
   */
