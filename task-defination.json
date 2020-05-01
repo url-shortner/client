@@ -1,0 +1,67 @@
+{
+  "ipcMode": "task",
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": [],
+        "options": {
+          "awslogs-group": "/ecs/tech",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "entryPoint": [],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
+      ],
+      "command": [],
+      "linuxParameters": [],
+      "environment": [],
+      "resourceRequirements": [
+      ],
+      "ulimits": [],
+      "dnsServers": [],
+      "mountPoints": [],
+      "secrets": [],
+      "dockerSecurityOptions": [],
+      "memoryReservation": 512,
+      "volumesFrom": [],
+      "stopTimeout": 2,
+      "image": "060127333571.dkr.ecr.ap-northeast-2.amazonaws.com/url-shortner-ssr:latest",
+      "startTimeout": 2,
+      "dependsOn": [],
+      "workingDirectory": "/usr/src/app",
+      "interactive": true,
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL", "curl -f http://localhost/ || exit 1"
+        ],
+        "interval": 300,
+        "timeout": 30,
+        "retries": 3,
+        "startPeriod": 0
+      },
+      "essential": true,
+      "links": [],
+      "pseudoTerminal": true,
+      "name": "people"
+    }
+  ],
+  "placementConstraints": [],
+  "family": "people",
+  "pidMode": "task",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "networkMode": "bridge",
+  "inferenceAccelerators": [],
+  "volumes": []
+}
