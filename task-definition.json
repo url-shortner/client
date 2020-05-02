@@ -33,6 +33,7 @@
       "memoryReservation": 512,
       "volumesFrom": [],
       "stopTimeout": 2,
+      "image": "060127333571.dkr.ecr.ap-northeast-2.amazonaws.com/url-shortner-ssr:latest",
       "startTimeout": 2,
       "dependsOn": [],
       "workingDirectory": "/usr/src/app",
