@@ -92,6 +92,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: url-shortner-ssr-service
+        service: url-shortner-ssr
         cluster: url-shortner-ssr
         wait-for-service-stability: true
