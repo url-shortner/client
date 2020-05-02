@@ -71,12 +71,17 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "INSTANCE",
+          "value": "node1"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": null,
+      "workingDirectory": "/usr/src/app",
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
@@ -87,7 +92,7 @@
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
-      "disableNetworking": null,
+      "disableNetworking": false,
       "interactive": null,
       "healthCheck": null,
       "essential": true,
@@ -118,12 +123,17 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "INSTANCE",
+          "value": "node2"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": null,
+      "workingDirectory": "/usr/src/app",
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
@@ -165,12 +175,17 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "INSTANCE",
+          "value": "node3"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": null,
+      "workingDirectory": "/usr/src/app",
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
@@ -204,7 +219,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:060127333571:task-definition/url-shortner-ssr:1",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:060127333571:task-definition/url-shortner-ssr:latest",
   "family": "url-shortner-ssr",
   "requiresAttributes": [
     {
@@ -230,6 +245,12 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
     },
     {
       "targetId": null,
@@ -262,7 +283,6 @@
   ],
   "networkMode": "awsvpc",
   "cpu": "256",
-  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
