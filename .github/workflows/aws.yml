@@ -57,7 +57,11 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: url-shortner-ssr
+        ECR_REPOSITORY: url-shortner-nginx
+        ECR_REPOSITORY_NODE1: url-shortner-node1
+        ECR_REPOSITORY_NODE2: url-shortner-node2
+        ECR_REPOSITORY_NODE3: url-shortner-node3
+
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
@@ -68,7 +72,10 @@ jobs:
         docker-compose build
         docker-compose push
         # docker-compose up -d
-        # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
+        echo "::set-output name=image1::$ECR_REGISTRY/$ECR_REPOSITORY_NODE1:latest"
+        echo "::set-output name=image2::$ECR_REGISTRY/$ECR_REPOSITORY_NODE2:latest"
+        echo "::set-output name=image3::$ECR_REGISTRY/$ECR_REPOSITORY_NODE3:latest"
 
     - name: Check running containers
       run: docker ps -a
@@ -78,7 +85,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: url-shortner-ssr
+        container-name: url-shortner-nginx
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
