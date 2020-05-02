@@ -8,7 +8,7 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/tech",
+          "awslogs-group": "/ecs/url-shortner-ssr",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
@@ -53,7 +53,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "tech"
+      "name": "url-shortner-nginx"
     },
     {
       "dnsSearchDomains": null,
@@ -61,19 +61,13 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/tech",
+          "awslogs-group": "/ecs/url-shortner-ssr",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "entryPoint": null,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "protocol": "tcp",
-          "containerPort": 80
-        }
-      ],
+      "portMappings": [],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -106,7 +100,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "tech"
+      "name": "url-shortner-node1"
     },
     {
       "dnsSearchDomains": null,
@@ -114,19 +108,13 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/tech",
+          "awslogs-group": "/ecs/url-shortner-ssr",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "entryPoint": null,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "protocol": "tcp",
-          "containerPort": 80
-        }
-      ],
+      "portMappings": [],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -159,7 +147,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "tech"
+      "name": "url-shortner-node2"
     },
     {
       "dnsSearchDomains": null,
@@ -167,19 +155,13 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/tech",
+          "awslogs-group": "/ecs/url-shortner-ssr",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
       },
       "entryPoint": null,
-      "portMappings": [
-        {
-          "hostPort": 80,
-          "protocol": "tcp",
-          "containerPort": 80
-        }
-      ],
+      "portMappings": [],
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
@@ -212,7 +194,7 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "tech"
+      "name": "url-shortner-node3"
     }
   ],
   "placementConstraints": [],
@@ -222,8 +204,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:060127333571:task-definition/tech:latest",
-  "family": "tech",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:060127333571:task-definition/url-shortner-ssr:1",
+  "family": "url-shortner-ssr",
   "requiresAttributes": [
     {
       "targetId": null,
