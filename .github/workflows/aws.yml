@@ -65,7 +65,8 @@ jobs:
         # be deployed to ECS.
         # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker-compose build --push $ECR_REGISTRY
+        docker-compose build
+        docker-compose push
         # docker-compose up -d
         # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
