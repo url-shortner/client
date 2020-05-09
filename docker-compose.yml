@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
 
@@ -29,7 +29,7 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000"
+      - "3000:3000"
     environment:
       - INSTANCE=node1
     networks:
@@ -44,7 +44,7 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000"
+      - "3000:3000"
     environment:
       - INSTANCE=node2
     networks:
@@ -59,7 +59,7 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000"
+      - "3000:3000"
     environment:
       - INSTANCE=node3
     networks:
