@@ -7,6 +7,8 @@ services:
     build:
       context: .
       dockerfile: .docker/dockerfile
+    links:
+      - node1:node1
     depends_on:
       - node1
     ports:
@@ -26,8 +28,9 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
+    volumes: [".:/usr/src/app"]
+    environment:
+      - INSTANCE=node1
     ports:
       - "3000:3000"
     networks:
