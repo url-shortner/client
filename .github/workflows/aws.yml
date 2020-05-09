@@ -83,8 +83,8 @@ jobs:
         # echo "::set-output name=image2::$ECR_REGISTRY/$ECR_REPOSITORY_NODE2:latest"
         # echo "::set-output name=image3::$ECR_REGISTRY/$ECR_REPOSITORY_NODE3:latest"
 
-    - name: Deploy to ECS whit ecs-cli
-      run:
+    - name: Deploy to ECS with ecs-cli
+      run: |
         ecs-cli configure --cluster url-shortner-ssr --default-launch-type FARGATE --config-name url-shortner-ssr --region ap-northeast-2
         ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name url-shortner-ssr
         ecs-cli up --cluster-config url-shortner-ssr --ecs-profile url-shortner-ssr
