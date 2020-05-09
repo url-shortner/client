@@ -85,11 +85,10 @@ jobs:
 
     - name: Deploy to ECS with ecs-cli
       run: |
-        ecs-cli configure --cluster url-shortner-ssr --default-launch-type FARGATE --config-name url-shortner-ssr --region ap-northeast-2
-        ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name url-shortner-ssr
-        ecs-cli up --cluster-config url-shortner-ssr --ecs-profile url-shortner-ssr
-        ecs-cli compose --project-name url-shortner-ssr service up --create-log-groups --cluster-config url-shortner-ssr --ecs-profile url-shortner-ssr
-        ecs-cli composer up
+        ecs-cli configure --cluster url-shortner-nginx --default-launch-type FARGATE --config-name url-shortner-nginx --region ap-northeast-2
+        ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name url-shortner-nginx
+        ecs-cli up --cluster-config url-shortner-nginx --ecs-profile url-shortner-nginx
+        ecs-cli compose --project-name url-shortner-nginx service up --create-log-groups --cluster-config url-shortner-nginx --ecs-profile url-shortner-nginx
 #     - name: Fill in the new image ID in the Amazon ECS task definition
 #       id: task-def
 #       uses: aws-actions/amazon-ecs-render-task-definition@v1
