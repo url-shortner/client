@@ -89,6 +89,7 @@ jobs:
         ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name url-shortner-ssr
         ecs-cli up --cluster-config url-shortner-ssr --ecs-profile url-shortner-ssr
         ecs-cli compose --project-name url-shortner-ssr service up --create-log-groups --cluster-config url-shortner-ssr --ecs-profile url-shortner-ssr
+        ecs-cli composer up
 #     - name: Fill in the new image ID in the Amazon ECS task definition
 #       id: task-def
 #       uses: aws-actions/amazon-ecs-render-task-definition@v1
