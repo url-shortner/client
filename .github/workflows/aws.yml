@@ -41,7 +41,18 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
+      
+    - name: Setup ecs-cli environment
+      uses: marocchino/setup-ecs-cli@v1.1.0
+      with:
+        # The ecs-cli version to download (if necessary) and use. Example: v1.18.0
+        version: v1.18.0
+      
+    - name: Configure ecs-cli enviroment
+      run: 
+        ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region ap-northeast-2
+        ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name tutorial-profile        
+    
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -72,26 +83,27 @@ jobs:
         docker-compose build
         docker-compose push
         # docker-compose up -d
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
-        echo "::set-output name=image1::$ECR_REGISTRY/$ECR_REPOSITORY_NODE1:latest"
-        echo "::set-output name=image2::$ECR_REGISTRY/$ECR_REPOSITORY_NODE2:latest"
-        echo "::set-output name=image3::$ECR_REGISTRY/$ECR_REPOSITORY_NODE3:latest"
+        # echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:latest"
+        # echo "::set-output name=image1::$ECR_REGISTRY/$ECR_REPOSITORY_NODE1:latest"
+        # echo "::set-output name=image2::$ECR_REGISTRY/$ECR_REPOSITORY_NODE2:latest"
+        # echo "::set-output name=image3::$ECR_REGISTRY/$ECR_REPOSITORY_NODE3:latest"
+        
+    - name: Deploy to ECS whit ecs-cli
+      run:
+        ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile 
+        ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
+#     - name: Fill in the new image ID in the Amazon ECS task definition
+#       id: task-def
+#       uses: aws-actions/amazon-ecs-render-task-definition@v1
+#       with:
+#         task-definition: task-definition.json
+#         container-name: url-shortner-nginx
+#         image: ${{ steps.build-image.outputs.image }}
 
-    - name: Check running containers
-      run: docker ps -a
-
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: task-definition.json
-        container-name: url-shortner-nginx
-        image: ${{ steps.build-image.outputs.image }}
-
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: url-shortner-ssr
-        cluster: url-shortner-ssr
-        wait-for-service-stability: true
+#     - name: Deploy Amazon ECS task definition
+#       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+#       with:
+#         task-definition: ${{ steps.task-def.outputs.task-definition }}
+#         service: url-shortner-ssr
+#         cluster: url-shortner-ssr
+#         wait-for-service-stability: true
