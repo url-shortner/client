@@ -16,7 +16,7 @@
   }
 
   body {
-    background-color: #f7f9fa;
+    background: #F2F3F7;
   }
 
   button {

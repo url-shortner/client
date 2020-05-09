@@ -55,12 +55,25 @@
   }
 
   .goto-main-button {
-    background: linear-gradient(325.69deg, #0080FF 0%, #66CCFF 100%);
-    box-shadow: 10px 10px 25px #D2D4D5, -10px -10px 25px #FFFFFF;
+    background: linear-gradient(320deg, #0080FF 0%, #66CCFF 100%);
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff;
     border-radius: 16px;
     height: 60px;
     max-width: 360px;
     width: 100%;
+    transition: all .2s;
+  }
+
+  .goto-main-button:hover {
+    box-shadow: 6px 6px 16px 0px rgba(0, 128, 255, .38), -6px -6px 16px 0px rgba(102, 204, 255, .16);
+  }
+
+  .goto-main-button:focus {
+    box-shadow: 6px 6px 16px 0px rgba(0, 128, 255, .38), -6px -6px 16px 0px rgba(102, 204, 255, .16);
+  }
+
+  .goto-main-button:active {
+    box-shadow: 0 0 transparent, 0 0 transparent, inset 0 2px 5px 2px rgba(0,0,0,.16);
   }
 
   .goto-main-button span {

@@ -124,18 +124,31 @@
   }
 
   .container > .search-input, .search-btn {
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
   .search-btn {
-    background: linear-gradient(335.22deg, #0080FF 0%, #66CCFF 100.62%);
-    box-shadow: 10px 10px 25px #D2D4D5, -10px -10px 25px #FFFFFF;
+    background: linear-gradient(320deg, #0080FF 0%, #66CCFF 100%);
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff;
     display: inline-block;
     width: 240px;
     vertical-align: sub;
     height: 60px;
     /*border: solid 2px;*/
     /*border-image: linear-gradient(90deg, #00CCFF 0%, #0073E5 100%);*/
+    transition: all .2s;
+  }
+
+  .search-btn:hover {
+    box-shadow: 6px 6px 16px 0px rgba(0, 128, 255, .38), -6px -6px 16px 0px rgba(102, 204, 255, .16);
+  }
+
+  .search-btn:focus {
+    box-shadow: 6px 6px 16px 0px rgba(0, 128, 255, .38), -6px -6px 16px 0px rgba(102, 204, 255, .16);
+  }
+
+  .search-btn:active {
+    box-shadow: 0 0 transparent, 0 0 transparent, inset 0 2px 5px 2px rgba(0,0,0,.16);
   }
 
   .search-btn span {
@@ -149,9 +162,9 @@
   }
 
   .container > .search-input {
+    background: #F2F3F7;
+    box-shadow: 0px 0px 0px 0px #D1DBEB, 0px 0px 0px 0px #fff, inset 6px 6px 8px 0px #D1DBEB, inset -6px -6px 8px 0px #fff;
     width: calc(100% - 276px);
-    background: linear-gradient(180deg, #F7F9FA 0%, #FCFDFD 100%);
-    box-shadow: 5px 5px 15px #D2D4D5, -5px -5px 15px #FFFFFF;
     border: none;
     padding: 10px 24px;
     margin: 0;
@@ -159,6 +172,18 @@
     margin-top: 60px;
     height: 60px;
     display: inline-block;
+    transition: all .2s;
+  }
+
+  .container > .search-input:focus {
+    background: #FFFFFF;
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff, inset 0px 0px 0px 0px #D1DBEB, inset 0px 0px 0px 0px #fff;
+  }
+
+  .container > .search-input:hover {
+    background: #FAFBFF;
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff, inset 0px 0px 0px 0px #D1DBEB, inset 0px 0px 0px 0px #fff;
+
   }
 
   .search-input::placeholder {
@@ -182,9 +207,9 @@
     width: 120px;
     height: 120px;
     padding: 12px;
-    background: linear-gradient(180deg, #F7F9FA 0%, #FCFDFD 100%);
+    background: #F2F3F7;
     box-shadow: 5px 5px 15px #D2D4D5, -5px -5px 15px #FFFFFF;
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
   .camera div {
@@ -197,9 +222,9 @@
   }
 
   .url-wrapper {
-    background: #F7F9FA;
-    box-shadow: 5px 5px 15px rgba(210, 212, 213, 0.54), -5px -5px 15px rgba(255, 255, 255, 0.54);
-    border-radius: 16px;
+    background: #F2F3F7;
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff, inset 0px 0px 0px 0px #D1DBEB, inset 0px 0px 0px 0px #fff;
+    border-radius: 12px;
     padding: 24px;
     width: 1216px;
     margin: 0;
@@ -209,13 +234,19 @@
 
   .url-wrapper .search-container {
     width: 100%;
-    background: linear-gradient(180deg, #F7F9FA 0%, #FCFDFD 100%);
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 0.54), inset 2px 2px 8px rgba(210, 212, 213, 0.54);
+    background: #F2F3F7;
+    box-shadow: 0px 0px 0px 0px #D1DBEB, 0px 0px 0px 0px #fff, inset 6px 6px 8px 0px #D1DBEB, inset -6px -6px 8px 0px #fff;
     border-radius: 8px;
     border: none;
     display: flex;
     padding: 0 24px;
     margin-bottom: 24px;
+    transition: all .2s;
+  }
+
+  .search-container:hover {
+    background: #FAFBFF;
+    box-shadow: 6px 6px 16px 0px #D1DBEB, -6px -6px 16px 0px #fff, inset 0px 0px 0px 0px #D1DBEB, inset 0px 0px 0px 0px #fff;
   }
 
   .search-container img {
