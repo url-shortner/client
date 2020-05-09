@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: Dockerfile
     working_dir: /usr/src/app
-    volumes: [".:/usr/src/app"]
+    volumes: /usr/src/app
     environment:
       - INSTANCE=node1
     ports:
