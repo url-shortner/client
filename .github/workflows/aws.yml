@@ -50,6 +50,7 @@ jobs:
       
     - name: Configure ecs-cli enviroment
       run: 
+        echo ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region ap-northeast-2
         ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name tutorial-profile        
     
@@ -90,6 +91,8 @@ jobs:
         
     - name: Deploy to ECS whit ecs-cli
       run:
+        ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region ap-northeast-2
+        ecs-cli configure profile --access-key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret-key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile-name tutorial-profile
         ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile 
         ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
 #     - name: Fill in the new image ID in the Amazon ECS task definition
